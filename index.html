@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🎓 Farewell Invitation 2026 — ECE Department</title>
+    <meta name="description" content="You're warmly invited to our Farewell Fest 2026. Join us for an evening of celebration, memories, and love.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 3D Parallax Stars Background -->
+    <canvas id="starsCanvas"></canvas>
+
+    <!-- Entry Screen -->
+    <div class="screen entry-screen" id="entryScreen">
+        <div class="gradient-bg"></div>
+
+        <!-- 3D Floating Orbs -->
+        <div class="orb-field">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="orb orb-4"></div>
+            <div class="orb orb-5"></div>
+            <div class="orb orb-6"></div>
+        </div>
+
+        <!-- Light Rays -->
+        <div class="light-rays">
+            <div class="ray ray-1"></div>
+            <div class="ray ray-2"></div>
+            <div class="ray ray-3"></div>
+        </div>
+
+        <div class="entry-card-3d" id="entryCard3d">
+            <div class="entry-content">
+                <div class="glow-ring"></div>
+                <div class="entry-badge">
+                    <span class="badge-icon">🎓</span>
+                    <div class="badge-rings">
+                        <div class="ring ring-1"></div>
+                        <div class="ring ring-2"></div>
+                        <div class="ring ring-3"></div>
+                    </div>
+                </div>
+                <h1>Farewell <span class="shimmer-text">2026</span></h1>
+                <p class="entry-subtitle">You're invited to a celebration of memories</p>
+                <div class="separator-3d">
+                    <span class="sep-wing left">━━━</span>
+                    <span class="sep-diamond">◆</span>
+                    <span class="sep-wing right">━━━</span>
+                </div>
+                <div class="input-container">
+                    <div class="input-wrapper floating-input">
+                        <span class="input-icon">👤</span>
+                        <input type="text" id="nameInput" placeholder="Enter your name" aria-label="Your name">
+                        <div class="input-glow"></div>
+                    </div>
+                    <div class="select-wrapper floating-input">
+                        <span class="select-icon">🎭</span>
+                        <select id="roleSelect" class="role-select">
+                            <option value="" disabled selected>Select your role</option>
+                            <option value="student">Student</option>
+                            <option value="teacher">Teacher</option>
+                        </select>
+                        <div class="input-glow"></div>
+                    </div>
+                    <button id="openLetterBtn" class="primary-btn btn-3d">
+                        <span class="btn-glow"></span>
+                        <span class="btn-content">
+                            <span class="btn-sparkle">✨</span>
+                            <span class="envelope-icon">✉️</span>
+                            Open Your Invitation
+                            <span class="btn-sparkle">✨</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Letter Screen -->
+    <div class="screen letter-screen hidden" id="letterScreen">
+        <div class="gradient-bg letter-gradient"></div>
+        <div class="snow-container"></div>
+
+        <!-- 3D Confetti burst on reveal -->
+        <div class="confetti-container" id="confettiContainer"></div>
+
+        <div class="letter-wrapper">
+            <div class="letter-3d-container" id="letter3d">
+                <div class="letter">
+                    <div class="letter-ribbon"></div>
+                    <div class="letter-corner corner-tl"></div>
+                    <div class="letter-corner corner-tr"></div>
+                    <div class="letter-corner corner-bl"></div>
+                    <div class="letter-corner corner-br"></div>
+                    <div class="letter-content">
+                        <div class="letter-header">
+                            <div class="header-decoration">
+                                <span class="deco-star">✦</span>
+                                <span class="deco-star">✦</span>
+                                <span class="deco-star">✦</span>
+                            </div>
+                            <h2>Farewell Invitation</h2>
+                            <div class="header-underline">
+                                <span class="underline-segment"></span>
+                            </div>
+                        </div>
+                        <div id="typewriter-text"></div>
+                        <div class="heart-container">
+                            <div class="heart-3d">
+                                <div class="heart"></div>
+                                <div class="heart-shadow"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <button id="replayBtn" class="icon-btn btn-float" title="Replay">
+                <span class="icon">↺</span>
+            </button>
+            <button id="shareBtn" class="icon-btn btn-float" title="Share">
+                <span class="icon">↗</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" autoplay loop>
+        <source src="audio/16.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Selection Panel -->
+    <div class="music-panel hidden" id="musicPanel">
+        <h3>Select Background Music</h3>
+        <div class="music-options">
+            <button class="music-option" data-src="audio/16.mp3">
+                <span class="music-icon">🎵</span>
+                Background Music
+            </button>
+        </div>
+        <div class="volume-control">
+            <span class="volume-icon">🔊</span>
+            <input type="range" id="volumeSlider" min="0" max="100" value="30">
+        </div>
+    </div>
+
+    <!-- Particle Container -->
+    <div class="particles-container"></div>
+
+    <!-- Info Box -->
+    <div class="info-box">
+        <div class="info-content">
+            <p class="info-title">✨ Created for:</p>
+            <p class="info-item">🎓 Batch: 2022 – 2026</p>
+            <p class="info-item">📘 Branch: ECE</p>
+            <p class="info-footer">Made with ❤️ by your Juniors — Batch 2023–2027</p>
+        </div>
+    </div>
+
+    <!-- Handwritten Message Animation -->
+    <div class="handwritten-container hidden" id="handwrittenContainer">
+        <div class="handwritten-message">
+            <div class="message-line" id="thankYou">Thank You</div>
+            <div class="message-line" id="missYou">We'll Miss You</div>
+            <div class="message-line" id="farewell">Farewell, Legends</div>
+            <div class="heart-emoji">❤️</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
