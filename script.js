@@ -265,7 +265,7 @@ reflect on shared memories, and wish them the very best for their future endeavo
 
 🎓 FAREWELL FEST 2026 🎓
 
-📅 Date: Tuesday, 15th April 2026
+📅 Date: Wednesday, 15th April 2026
 🕑 Time: 2:00 PM to 4:30 PM
 📍 Venue: C. V. Raman Indoor Auditorium
 
@@ -288,7 +288,7 @@ allow us to honor your remarkable path with joy and admiration 💗.
 
 🎓 HAPPY FAREWELL 2026 🎓
 
-📅 Date: Tuesday, 15th April 2026
+📅 Date: Wednesday, 15th April 2026
 🕑 Time: 2:00 PM to 4:30 PM
 📍 Venue: C. V. Raman Indoor Auditorium
 
